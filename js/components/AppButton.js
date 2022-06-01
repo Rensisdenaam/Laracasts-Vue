@@ -1,13 +1,27 @@
 export default {
     template: `
-        <button @click="toggle" class="bg-blue-500 disabled:cursor-not-allowed hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        :disabled="processing">
+        <button
+        :class="{
+            'font-bold py-2 px-4 rounded disabled:cursor-not-allowed': true,
+            'bg-gray-200 hover:bg-gray-300' : type === 'primary',
+            'bg-blue-400 hover:bg-blue-500' : type === 'secondary',
+            'bg-green-400 hover:bg-green-500' : type === 'muted',
+            'is-loading' : processing
+            }"        
+        :disabled="processing"
+        >
             <slot />
         </button>
      `,
-    data() {
-        return {
-            processing: true
+
+    props: {
+        type: {
+            type: String,
+            default: "primary"
+        },
+        processing: {
+            type: Boolean,
+            default: false
         }
     },
 }
