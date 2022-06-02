@@ -15,9 +15,10 @@ export default {
     data() {
         return {
             assignments: [
-                { name: 'Finnish project', completed: false, id: 1  },
-                { name: 'Get good', completed: false, id: 2 },
-                { name: 'get even better', completed: false, id: 3 },
+                { name: 'Finnish project', completed: false, id: 1 , tag: 'english'},
+                { name: 'Get good', completed: false, id: 2 , tag: 'math'},
+                { name: 'get even better', completed: false, id: 3, tag: 'english' },
+                { name: 'sla iemand op zijn of haar kop', completed: false, id: 4, tag: 'sience' },
             ],
         }
     },
