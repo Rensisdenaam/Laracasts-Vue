@@ -3,8 +3,10 @@ import AssignmentList from "./AssignmentList.js";
 export default {
     components: { AssignmentList },
     template: `
-        <AssignmentList :assignments="inProgressAssignments" title="In progress" />
-        <AssignmentList :assignments="completedAssignments" title="Completed" />
+        <section class="space-y-6">
+            <AssignmentList :assignments="filters.inProgress" title="In progress" />
+            <AssignmentList :assignments="filters.completed" title="Completed" />
+        </section>
    `,
 
     data() {
@@ -18,11 +20,12 @@ export default {
     },
 
     computed: {
-        inProgressAssignments() {
-            return this.assignments.filter(assignment => ! assignment.completed)
-        },
-        completedAssignments() {
-            return this.assignments.filter(assignment => assignment.completed)
+        filters() {
+            return{
+                inProgress: this.assignments.filter(assignment => ! assignment.completed),
+                completed: this.assignments.filter(assignment => assignment.completed)
+            };
         }
+
     },
 }
