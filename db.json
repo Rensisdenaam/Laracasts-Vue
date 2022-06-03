@@ -1,0 +1,22 @@
+{
+  "assignments": [
+    {
+      "name": "Finnish project",
+      "completed": false,
+      "id": 1 ,
+      "tag": "english"
+    },
+    {
+      "name": "testingggggg",
+      "completed": false,
+      "id": 2,
+      "tag": "sience"
+    },
+    {
+      "name": "message Lois",
+      "completed": false,
+      "id": 3,
+      "tag": "stoopid"
+    }
+  ]
+}
