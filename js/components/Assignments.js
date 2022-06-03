@@ -14,12 +14,7 @@ export default {
 
     data() {
         return {
-            assignments: [
-                { name: 'Finnish project', completed: false, id: 1 , tag: 'english'},
-                { name: 'Get good', completed: false, id: 2 , tag: 'math'},
-                { name: 'get even better', completed: false, id: 3, tag: 'english' },
-                { name: 'sla iemand op zijn of haar kop', completed: false, id: 4, tag: 'sience' },
-            ],
+            assignments: [],
         }
     },
 
@@ -30,6 +25,14 @@ export default {
                 completed: this.assignments.filter(assignment => assignment.completed)
             };
         }
+    },
+
+    created() {
+        fetch('http://localhost:3001/assignments')
+            .then(response => response.json())
+            .then(assignmnets => {
+                this.assignments = assignmnets;
+            });
     },
 
     methods: {
